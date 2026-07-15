@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نسيمة | قصة حب لا تنتهي</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <!-- Falling Roses Canvas -->
+    <canvas id="falling-roses"></canvas>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="glass-btn">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Music Player VIP -->
+    <div class="music-player glass-card">
+        <div class="music-info">
+            <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?q=80&w=200&auto=format&fit=crop" alt="Song Cover" class="rotating-cover">
+            <div>
+                <h4>أغنيتنا المفضلة</h4>
+                <p>صوت الحب</p>
+            </div>
+        </div>
+        <div class="music-controls">
+            <i class="fas fa-step-backward" id="prev-song"></i>
+            <i class="fas fa-play play-btn" id="play-pause"></i>
+            <i class="fas fa-step-forward" id="next-song"></i>
+        </div>
+        <!-- Hidden YouTube Iframe -->
+        <iframe id="music-frame" src="https://www.youtube.com/embed/L7NfCVp0kgc?enablejsapi=1" style="display: none;" allow="autoplay"></iframe>
+    </div>
+
+    <!-- Time based message -->
+    <div id="time-message" class="time-message glass-card" data-aos="fade-down">
+        <!-- Injected via JS -->
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section class="hero" id="home">
+        <div class="video-background">
+            <!-- Using a beautiful generic romantic video or image as fallback -->
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop" alt="Romantic Background" class="bg-img">
+            <div class="overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="zoom-in" data-aos-duration="1500">❤️ إلى أجمل فتاة... <span>نسيمة</span> ❤️</h1>
+            <h2 class="hero-subtitle"><span id="typed-hero"></span></h2>
+            <button class="primary-btn pulse-anim" onclick="scrollToSection('about')">ابدئي رحلتنا ❤️</button>
+        </div>
+    </section>
+
+    <!-- 2. Who is Nassima? -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">🌸 من هي نسيمة؟</h2>
+            <div class="about-content about-3col">
+                <!-- Photo Zakaria -->
+                <div class="about-img glass-frame" data-aos="fade-right">
+                    <img src="zaki1.png" alt="Zakaria">
+                    <div class="about-photo-label">زكرياء ❤️</div>
+                </div>
+
+                <!-- Text Center -->
+                <div class="about-text" data-aos="fade-up">
+                    <h3>أجمل صدفة في حياتي</h3>
+                    <div class="traits">
+                        <span class="trait-tag"><i class="fas fa-heart"></i> طيبة</span>
+                        <span class="trait-tag"><i class="fas fa-star"></i> جميلة</span>
+                        <span class="trait-tag"><i class="fas fa-brain"></i> ذكية</span>
+                        <span class="trait-tag"><i class="fas fa-dove"></i> حنونة</span>
+                    </div>
+                    <blockquote class="custom-quote">
+                        "أنتِ لستِ فقط حبيبتي، أنتِ ملجأي، صديقتي، والنبض الذي يحيي قلبي كل يوم."
+                    </blockquote>
+                </div>
+
+                <!-- Photo Nassima -->
+                <div class="about-img glass-frame" data-aos="fade-left">
+                    <img src="nassima3.png" alt="Nassima">
+                    <div class="about-photo-label">نسيمة 💖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Our Story (Timeline) -->
+    <section class="story" id="story">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">📖 قصتنا</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon glass-icon"><i class="fas fa-comment-dots"></i></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">📅 فبراير 2025</span>
+                        <h3>💬 أول رسالة</h3>
+                        <p>
+                            في ذلك اليوم، بدأت قصتنا بطريقة لم أكن أتوقعها.<br><br>
+                            كان أول لقاء بيننا على Instagram، من خلال Reel. علّقتُ عليه بالخطأ، فاعتذرتُ لكِ وقلت: "سمحي ليا." فابتسمتِ وقلتِ بكل بساطة: "ماشي مشكل." 😊<br><br>
+                            لم أكن أعلم أن تلك الكلمات القليلة ستكون بداية أجمل قصة في حياتي. من رسالة عفوية بدأت حكاية مليئة بالابتسامات، والاهتمام، والمشاعر الصادقة.<br><br>
+                            ومنذ ذلك اليوم، أصبحتِ جزءًا جميلًا من أيامي، وكل لحظة معكِ جعلتني أؤمن أن أجمل الصدف هي التي تأتي دون موعد.<br><br>
+                            كانت مجرد رسالة... لكنها غيّرت حياتي إلى الأبد. ❤️
+                        </p>
+                        <div class="insta-badge">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram DM</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon glass-icon"><i class="fas fa-coffee"></i></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">📅 شهر 5 2026</span>
+                        <h3>أول لقاء</h3>
+                        <p>
+                            في ذلك اليوم، لم يكن مجرد لقاء عادي، بل كان يومًا سيبقى محفورًا في قلبي إلى الأبد.<br><br>
+                            التقينا لأول مرة وجهًا لوجه في الخردة، وبعد كل الرسائل التي تبادلناها، جاء الوقت لنرى بعضنا للمرة الأولى. حين التقت أعيننا، شعرت وكأن الزمن توقف للحظات، ولم أعد أرى سوى ابتسامتك الجميلة.
+                        </p>
+                        <img src="image.png" alt="أول لقاء">
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon glass-icon"><i class="fas fa-camera"></i></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">25 ماي 2025</span>
+                        <h3>أول صورة 📸</h3>
+                        <p>أجمل ابتسامة وثقتها عدسة الكاميرا وخلدها قلبي.</p>
+                        <img src="image.png" alt="أول صورة">
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-icon glass-icon"><i class="fas fa-heart"></i></div>
+                    <div class="timeline-content glass-card">
+                        <span class="date">1 يوليوز 2023</span>
+                        <h3>أول "أحبك" ❤️</h3>
+                        <p>الكلمة التي جعلتني أطير من الفرح، وأدرك أنك قدري.</p>
+                        <img src="nassima2.png" alt="أول أحبك">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Photo Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">📸 أجمل لحظاتنا</h2>
+            <!-- Swiper -->
+            <div class="swiper gallery-slider" data-aos="zoom-in">
+                <div class="swiper-wrapper masonry-layout">
+                    <div class="swiper-slide"><img src="zaki1.png" class="gallery-img" alt="Memory"></div>
+                    <div class="swiper-slide"><img src="nassima1.png" class="gallery-img" alt="Memory"></div>
+                    <div class="swiper-slide"><img src="zaki2.png" class="gallery-img" alt="Memory"></div>
+                    <div class="swiper-slide"><img src="nassima2.png" class="gallery-img" alt="Memory"></div>
+                    <div class="swiper-slide"><img src="zaki3.png" class="gallery-img" alt="Memory"></div>
+                    <div class="swiper-slide"><img src="nassima3.png" class="gallery-img" alt="Memory"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Love Letter -->
+    <section class="letter-section" id="letter">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">💌 رسالة من قلبي</h2>
+            <div class="envelope-wrapper" onclick="openEnvelope()" data-aos="zoom-in">
+                <div id="envelope" class="envelope">
+                    <div class="front flap"></div>
+                    <div class="front pocket"></div>
+                    <div class="letter">
+                        <p id="typed-letter"></p>
+                    </div>
+                </div>
+                <p class="envelope-hint">اضغطي على الظرف لفتحه ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Countdown & 7. Counter -->
+    <section class="counters" id="time">
+        <div class="container grid-2">
+            <!-- Love Counter -->
+            <div class="love-counter glass-card" data-aos="fade-right">
+                <h3>⏳ عداد حبنا</h3>
+                <p>منذ أن أنرتِ حياتي...</p>
+                <div class="counter-display" id="love-timer">
+                    <div class="time-box">
+                        <span id="c-years">00</span>
+                        <p>سنة</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="c-months">00</span>
+                        <p>شهر</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="c-days">00</span>
+                        <p>يوم</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="c-hours">00</span>
+                        <p>ساعة</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown -->
+            <div class="special-countdown glass-card" data-aos="fade-left">
+                <h3>💍 العد التنازلي ليوم زفافنا</h3>
+                <p>سنة 2030... ننتظره بكل شوق لنكون معاً إن شاء الله</p>
+                <div class="counter-display" id="anniversary-timer">
+                    <div class="time-box">
+                        <span id="a-days">00</span>
+                        <p>أيام</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="a-hours">00</span>
+                        <p>ساعات</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="a-mins">00</span>
+                        <p>دقائق</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="a-secs">00</span>
+                        <p>ثواني</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Reasons I love you -->
+    <section class="reasons" id="reasons">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">❤️ 20 سبباً يجعلني أعشقك</h2>
+            <div class="cards-grid">
+                <!-- Injected via JS to make 20 cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Achievements -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">🏆 ما حققناه معاً</h2>
+            <div class="achievements-wrap">
+                <div class="ach-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3 class="counter-up" data-target="850">0</h3>
+                    <p>يوم معاً ❤️</p>
+                </div>
+                <div class="ach-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-camera-retro"></i>
+                    <h3 class="counter-up" data-target="1024">0</h3>
+                    <p>صورة جميلة 📸</p>
+                </div>
+                <div class="ach-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-gift"></i>
+                    <h3 class="counter-up" data-target="24">0</h3>
+                    <p>هدية 🎁</p>
+                </div>
+                <div class="ach-card glass-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-laugh-beam"></i>
+                    <h3 class="counter-up" data-target="9999">0</h3>
+                    <p>ابتسامة وذكرى 😊</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Surprise Box -->
+    <section class="surprises" id="surprise">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">🎁 صندوق المفاجآت</h2>
+            <p style="margin-bottom: 2rem; color: var(--text-color);">اختاري صندوقاً واكتشفي مفاجأتك</p>
+            <div class="boxes-container">
+                <div class="gift-box glass-card" onclick="openBox(1)" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-box-open box-icon"></i>
+                    <h4>الصندوق الأول</h4>
+                </div>
+                <div class="gift-box glass-card" onclick="openBox(2)" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-box-open box-icon"></i>
+                    <h4>الصندوق الثاني</h4>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. AI Surprise -->
+    <section class="ai-surprise" id="ai">
+        <div class="container text-center glass-container p-4" data-aos="zoom-in">
+            <h2 class="section-title">🤖 اسألي قلب زكرياء</h2>
+            <p>اكتبي أي سؤال يخطر ببالك لتري بماذا سيجيبك قلبي ❤️</p>
+            <div class="ai-input-wrap">
+                <input type="text" id="ai-question" placeholder="مثلاً: كم تحبني؟">
+                <button class="primary-btn" onclick="askHeart()"><i class="fas fa-paper-plane"></i> اسألي</button>
+            </div>
+            <div id="ai-answer" class="ai-answer"></div>
+        </div>
+    </section>
+
+    <!-- 18. Promise Page -->
+    <section class="promise-section" id="promise">
+        <div class="container text-center" data-aos="fade-up">
+            <h2 class="section-title">💍 عهدي لكِ</h2>
+            <div class="promise-card glass-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <p><strong>إلى نسيمتي... ❤️</strong></p>
+                <p>أمام الله، وأمام قلبي، أقطع لكِ هذا العهد:</p>
+                <p>أعدكِ أن أكون لكِ سندًا قبل أن أكون حبيبًا، وأن أحترمكِ في كل وقت، وأحافظ على مكانتكِ في قلبي، وأمنحكِ الأمان الذي تستحقينه.</p>
+                <p>أعدكِ أن أكون إلى جانبكِ في أيام الفرح قبل الحزن، وفي أوقات القوة قبل الضعف، وأن أواجه معكِ كل تحديات الحياة بيدٍ لا تترك يدكِ.</p>
+                <p>أعدكِ أن أستمع إليكِ، وأتفهم مشاعركِ، وأصون ثقتكِ، وأبذل كل ما أستطيع لأراكِ سعيدة، لأن سعادتكِ أصبحت جزءًا من سعادتي.</p>
+                <p>وأعدكِ أن يبقى حبي لكِ صادقًا، نقيًا، مليئًا بالاحترام والوفاء، وأن أدعو الله دائمًا أن يجمع بيننا في الحلال، وأن يكتب لنا حياةً يملؤها الحب والرحمة والسكينة.</p>
+                <p><strong>أنتِ لستِ مجرد اختيار... بل أجمل قدرٍ ساقه الله إلى حياتي، وأعظم نعمة أحمده عليها في كل يوم.</strong></p>
+                <p><strong>وأعدكِ... ما دام في قلبي نبض، سيبقى اسمكِ محفورًا فيه بكل حب.</strong> ❤️</p>
+                <h4>— زكرياء</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 15. Final Message -->
+    <section class="final-message-section" id="final-message" style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">❤️ رسالتي الأخيرة إليكِ</h2>
+            <div class="glass-card message-card" data-aos="zoom-in" style="max-width: 800px; margin: 0 auto; padding: 40px; border-radius: 24px; position: relative;">
+                <div style="text-align: right; line-height: 1.8; color: var(--text-color); font-size: 1.15rem; margin-bottom: 2rem;">
+                    <p><strong>إلى نسيمتي...</strong></p>
+                    <p>قبل أن تنتهي رحلتكِ في هذا الموقع، أريد أن أترك لكِ هذه الكلمات من قلبي.</p>
+                    <p>أريدكِ أن تعرفي شيئًا مهمًا... عندما أقول لكِ أحيانًا: <strong>"ما تخرجيش"</strong> أو <strong>"خلي بالك"</strong>، فليس لأنني لا أثق بكِ، بل لأنني أثق بكِ ثقةً كبيرة، وأعرف أخلاقكِ وقيمتكِ جيدًا.</p>
+                    <p>لكن هذا العالم ليس دائمًا كما نتمنى، واهتمامي بكِ نابع من خوفي عليكِ، لا من رغبتي في التحكم بكِ أو تقييد حريتكِ.</p>
+                    <p>سأحترم دائمًا قراراتكِ، وسأراعي ما يسعدكِ، لأن راحتكِ وسعادتكِ تعنيان لي الكثير. وكل ما أتمناه هو أن تكوني دائمًا في مكان آمن، ومع أشخاص يقدّرونكِ ويحترمونكِ كما تستحقين.</p>
+                    <p>أريد أن تبقي مبتسمة، مطمئنة، ومحفوظة بحفظ الله أينما كنتِ. وسأظل أدعو لكِ في كل يوم أن يحفظكِ من كل سوء، وأن يكتب لكِ الخير في كل خطوة تخطينها.</p>
+                    <p><strong>تذكري دائمًا... حبي لكِ ليس قيودًا، بل أمان، واحترام، ودعاء دائم بأن يراكِ الله في أجمل حال.</strong></p>
+                    <p><strong>أحبكِ، وسأظل أختاركِ في كل مرة، وفي كل يوم، وفي كل عمر.</strong> ❤️</p>
+                    <p style="text-align: left; font-weight: bold; font-size: 1.3rem; margin-top: 1.5rem; color: var(--primary-color);">— زكرياء</p>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px dashed rgba(255, 77, 109, 0.3); margin: 2rem 0;">
+                
+                <div style="text-align: center;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 1rem; font-family: var(--font-heading);">جاوبيني يا حبيبتي... 💬</h4>
+                    <textarea id="final-reply-msg" rows="4" placeholder="اكتبي جوابكِ الصادق هنا وسأتوصل به فوراً..." style="width: 100%; max-width: 600px; padding: 15px; border-radius: 12px; border: 1px solid rgba(255, 77, 109, 0.2); background: rgba(255, 255, 255, 0.1); color: var(--text-color); font-size: 1rem; outline: none; margin-bottom: 1.5rem; resize: vertical; display: block; margin-left: auto; margin-right: auto;"></textarea>
+                    <button class="primary-btn pulse-anim" onclick="sendFinalReply()" style="min-width: 200px;">إرسال الجواب على واتساب 💖</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Guestbook -->
+    <section class="guestbook" id="guestbook">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">📝 دفتري الصغير</h2>
+            <div class="glass-card form-card" data-aos="zoom-in">
+                <h3>اتركي لي رسالة يا حبيبتي...</h3>
+                <textarea id="love-message" rows="4" placeholder="اكتبي ما في قلبك هنا..."></textarea>
+                <button class="primary-btn" onclick="saveMessage()">حفظ الرسالة 💌</button>
+                <div id="saved-msg-display" class="mt-3 hidden">
+                    <h5>رسالتك:</h5>
+                    <p id="msg-content"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 19. Contact -->
+    <section class="contact" id="contact">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">📞 تواصل معي يا روحي</h2>
+            <div class="social-links">
+                <a href="https://wa.me/212710282367" target="_blank" class="social-btn whatsapp pulse-anim" data-aos="zoom-in" data-aos-delay="100"><i class="fab fa-whatsapp"></i> واتساب</a>
+                <a href="https://instagram.com" target="_blank" class="social-btn instagram pulse-anim" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-instagram"></i> إنستغرام</a>
+                <a href="#" class="social-btn facebook pulse-anim" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-facebook-f"></i> فيسبوك</a>
+                <a href="tel:+212710282367" class="social-btn phone pulse-anim" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-phone-alt"></i> اتصال</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 20. Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>صُنع هذا الموقع بكل حب من <strong>زكرياء</strong> إلى <strong>نسيمة</strong> ❤️</p>
+            <p class="small">© 2026 قصة حبنا الأبدية</p>
+        </div>
+    </footer>
+
+    <!-- Modals for Gallery & Boxes -->
+    <!-- Image Modal -->
+    <div id="img-modal" class="modal">
+        <span class="close" onclick="closeModal('img-modal')">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <!-- Box Modal -->
+    <div id="box-modal" class="modal">
+        <span class="close" onclick="closeModal('box-modal')">&times;</span>
+        <div class="modal-content glass-card box-result text-center">
+            <h3 id="box-title"></h3>
+            <div id="box-media" class="mt-3"></div>
+            <p id="box-desc" class="mt-3 font-bold"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Typed.js -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
